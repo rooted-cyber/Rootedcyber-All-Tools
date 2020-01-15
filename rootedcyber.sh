@@ -41,6 +41,7 @@ logo () {
 			}
 	version () {
 		cd ~/Rootedcyber-All-Tools
+		rm -f update1.0 > /dev/null 2>&1
 		wget https://raw.githubusercontent.com/rooted-cyber/Rootedcyber-All-Tools/master/update1.0 > /dev/null 2>&1
 		if [ -e update1.0 ];then
 		rm -f update1.0
