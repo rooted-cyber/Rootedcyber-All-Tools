@@ -1313,9 +1313,9 @@ logo () {
 	apt install python
 	pip install lolcat
 	apt install cowsay
-	echo "#!/data/data/com.termux/files/usr/bin" > $PREFIX/bin/rootedcyber
+	echo "#!/data/data/com.termux/files/usr/bin/sh" > $PREFIX/bin/rootedcyber
 	echo "cd ~/Rootedcyber-All-Tools" >> $PREFIX/bin/rootedcyber
-	echo "bash tools.sh" >> $PREFIX/bin/rootedcyber
+	echo "bash rootedcyber.sh" >> $PREFIX/bin/rootedcyber
 	clear
 	printf "\033[93m Now you can use this command :- rootedcyber\n\n"
 	printf "Press enter to open "
