@@ -20,7 +20,7 @@ logo () {
 		cowsay -d Update needed !! |lolcat --animate
 		echo
 		echo
-		echo -e -n "\033[92m Update Rootedcyber-All-Tool ?\033[91m (\033[97mY/N\033[91m)  "
+		echo -e -n "\033[92m Update Rootedcyber-All-Tool ?\033[91m (\033[97mY/N\033[91m)  \033[97m"
 		read dg
 		case $dg in
 		y|Y)update_start ;;
@@ -1321,12 +1321,49 @@ logo () {
 	printf "Press enter to open "
 	read
 	fi
+	check() {
+		cd $PREFIX/bin
+		if [ -e wget ];then
+		echo
+		else
+		printf "\n\033[92m Installing wget \n"
+		pkg install wget
+		fi
+		check2
+		}
+		check2 () {
+			cd $PREFIX/bin
+			if [ -e wget ];then
+			echo
+			clear
+			else
+			dpkg --configure -a
+			apt --fix-broken install
+			check
+			fi
+			}
+			internet-check () {
+				cd $HOME
+				printf "\n Checking internet\n"
+				wget https://raw.githubusercontent.com/rooted-cyber/Rootedcyber-All-Tools/master/check > /dev/null 2>&1
+				if [ -e check ];then
+				rm -f check
+				echo
+				clear
+				else
+				printf "\033[91m \n\n [×] Not connected , to internet !!\n"
+				exit
+				fi
+				}
 	echo
 	echo
 	lal="\033[91m"
 	pila="\033[93m"
 	hara="\033[92m"
 	ajib="\033[96m"
+	clear
+	check
+	internet-check
 	clear
 	logo
 	design 
