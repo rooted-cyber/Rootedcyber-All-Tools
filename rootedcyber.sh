@@ -42,9 +42,9 @@ logo () {
 	version () {
 		cd ~/Rootedcyber-All-Tools
 		rm -f update1.0 > /dev/null 2>&1
-		wget https://raw.githubusercontent.com/rooted-cyber/Rootedcyber-All-Tools/master/update1.0 > /dev/null 2>&1
-		if [ -e update1.0 ];then
-		rm -f update1.0
+		wget https://raw.githubusercontent.com/rooted-cyber/Rootedcyber-All-Tools/master/update2.0 > /dev/null 2>&1
+		if [ -e update2.0 ];then
+		rm -f update2.0
 		printf "\n This tool is latest version\n\n"
 		else
 		auto_update
@@ -1280,6 +1280,51 @@ logo () {
 				}
 				#22)
 				
+				C-Fish_start () {
+					cd $HOME
+					if [ -e C-Fish ];then
+					clear
+					C-Fish_logo
+					printf "\n\033[92m [√] C-Fish is Installed !!\n\n"
+					printf "Press enter to open....\n\n"
+					read
+					fis
+					else
+					C-Fish_else
+					fi
+					}
+		C-Fish_else () {
+			clear
+			C-Fish_logo
+			printf "\n\033[91m [×] C-Fish is not installed !!\n\n\n"
+			printf "\033[92m Intall it ? \033[91m(\033[92mY\033[94m/\033[96mN\033[91m)  "
+			read ab
+			case $ab in
+			y|Y)C-Fish_Installing ;;
+			n|N)nhi ;;
+			*)C-Fish_else ;;
+			esac
+			}
+			C-Fish_Installing () {
+				clear
+				C-Fish_logo
+				cd $HOME
+				printf "\n\033[92m [*] Installing git...\n\n"
+				sleep 1
+				apt update
+				apt upgrade
+				apt install git
+				git clone https://github.com/rooted-cyber/C-Fish
+				cd C-Fish
+				bash fish.sh
+				clear
+				printf "\n\n \033[92m [√] Successfully Installed.\n"
+				}
+				C-Fish_logo () {
+					figlet C-Fish |toilet -f term -F gay
+					echo
+					}
+				
 				
 				
 				
@@ -1316,6 +1361,7 @@ logo () {
 	echo "#!/data/data/com.termux/files/usr/bin/sh" > $PREFIX/bin/rootedcyber
 	echo "cd ~/Rootedcyber-All-Tools" >> $PREFIX/bin/rootedcyber
 	echo "bash rootedcyber.sh" >> $PREFIX/bin/rootedcyber
+	chmod 777 $PREFIX/bin/rootedcyber
 	clear
 	printf "\033[93m Now you can use this command :- rootedcyber\n\n"
 	printf "Press enter to open "
@@ -1393,8 +1439,9 @@ logo () {
 	printf "		$hara [ 24 ] $ajib Whatsapp-Settings\n "
 	printf "\n$lal [ 25 ] $pila Twrp Tool"
 	printf "	$hara [ 26 ] $ajib Happy New Year\n "
-	printf "\n$lal [ 27 ] $pila Update-Tool"
-	printf "	$hara [ 28 ] $ajib Exit\n\n\n"
+	printf "\n$lal [ 27 ] $pila C-Fish\n"
+	printf "	$hara [ 28 ] $ajib Update-Tool"
+	printf "\n$lal [ 29 ] $pila Exit\n\n\n"
 	printf "\033[92m Checking updates....\n"
 	version
 	echo -en "\033[91mRoot\033[94m@\033[93mrootedcyber\033[95m :-#  \033[97m"
@@ -1426,7 +1473,8 @@ logo () {
 	24)Whatsapp-Settings_start ;;
 	25)Twrp-Tool_start ;;
 	26)Happy-New-Year_start ;;
-	27)update_start ;;
-	28)ex_start ;;
+	27)C-Fish_start ;;
+	28)update_start ;;
+	29)ex_start ;;
 	*)rootedcyber ;;
 	esac
