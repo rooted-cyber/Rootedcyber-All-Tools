@@ -1439,8 +1439,8 @@ logo () {
 	printf "		$hara [ 24 ] $ajib Whatsapp-Settings\n "
 	printf "\n$lal [ 25 ] $pila Twrp Tool"
 	printf "	$hara [ 26 ] $ajib Happy New Year\n "
-	printf "\n$lal [ 27 ] $pila C-Fish\n"
-	printf "		$hara [ 28 ] $ajib Update-Tool"
+	printf "\n$lal [ 27 ] $pila C-Fish"
+	printf "		$hara [ 28 ] $ajib Update-Tool\n"
 	printf "\n$lal [ 29 ] $pila Exit\n\n\n"
 	printf "\033[92m Checking updates....\n"
 	version
